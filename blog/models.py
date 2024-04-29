@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+def profile_page(request):
+    user = get_object_or_404(User, user=request.user)
+    comments = user.commenter.all()
+
 STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your models here.
